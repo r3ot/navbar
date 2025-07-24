@@ -1,15 +1,25 @@
+const menuIcon = document.getElementById("menuIcon");
+const sidebar = document.getElementById("sidebar");
+const icon = document.getElementById("menuToggleIcon");
+const closeSidebar = document.getElementById("closeSidebar");
 
-        let menuList = document.getElementById("menuList")
-        menuList.style.maxHeight = "0px";
+// Toggle sidebar from menu icon
+menuIcon.addEventListener("click", () => {
+  sidebar.classList.toggle("show");
 
-        function toggleMenu(){
-            if(menuList.style.maxHeight == "0px")
-            {
-                menuList.style.maxHeight = "300px";
-            }
-            else{
-                menuList.style.maxHeight = "0px";
-            }
-        }
-        
-    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+  // Swap icon
+  if (sidebar.classList.contains("show")) {
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-times");
+  } else {
+    icon.classList.remove("fa-times");
+    icon.classList.add("fa-bars");
+  }
+});
+
+// Close sidebar using X icon inside it
+closeSidebar.addEventListener("click", () => {
+  sidebar.classList.remove("show");
+  icon.classList.remove("fa-times");
+  icon.classList.add("fa-bars");
+});
