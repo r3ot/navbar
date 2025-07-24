@@ -1,74 +1,106 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
-    background: #ffffff;
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
 }
 
-nav{
-    padding: 10px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #000000e8;
-    position: relative;
-    height: 70px;
+/* NAVBAR */
+nav {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000000e8;
+  position: relative;
+  height: 70px;
+  flex-wrap: wrap;
 }
 
-.logo{
-    color: #fff;
+.logo {
+  color: #fff;
 }
 
-nav ul{
-    display: flex;
-    gap: 30px;
-    align-items: center;
+#menuList {
+  display: flex;
+  gap: 35px;
+  list-style: none;
 }
 
-nav ul li{
-    list-style-type: none;
+#menuList li a {
+  text-decoration: none;
+  color: #f9f9f9;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: #f9f9f9;
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background: #1a1a1a;
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
-.menu-icon{
+.sidebar.show {
+  right: 0;
+}
+
+.sidebar .nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar .nav-links a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Sidebar close icon */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.close-sidebar {
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+/* MENU ICON */
+.menu-icon {
+  display: none;
+}
+
+.menu-icon i {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #menuList {
     display: none;
-}
+  }
 
-.menu-icon i{
-    color: #fff;
-    font-size: 30px;
-}
-
-@media (max-width:600px) {
-    nav ul{
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        text-align: center;
-        background: #98a3ac95;
-        gap: 0;
-        overflow: hidden;
-    }
-    nav ul li{
-        padding: 20px;
-        padding-top: 0;
-    }
-    .menu-icon{
-        display: block;
-    }
-    #menuList{
-        transition: all 0.5s;
-    }
+  .menu-icon {
+    display: block;
+  }
 }
